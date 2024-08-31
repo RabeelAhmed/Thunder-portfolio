@@ -179,5 +179,4 @@ function handleSubmit(event) {
 /**
  * Prevent Image download & inspect
  */
-
-// document.addEventListener("contextmenu", (event) => event.preventDefault());
+ document.addEventListener("contextmenu", (event) => event.preventDefault());
