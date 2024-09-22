@@ -95,6 +95,80 @@ body.light_theme {
 
 }
 
+/* Preloader */
+#preloader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 150;
+  transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+}
+
+/* Hide preloader */
+.hide-preloader {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+/* Default spinner style */
+.spinner {
+  position: absolute;
+  width: 14.1px;
+  height: 14.1px;
+}
+
+/* Spinner elements */
+.spinner div {
+  position: absolute;
+  width: 50%;
+  height: 150%;
+  transform: rotate(calc(var(--rotation) * 1deg)) translate(0, calc(var(--translation) * 1%));
+  animation: spinner-fzua35 0.8s calc(var(--delay) * 0.8s) infinite ease;
+}
+
+/* Light theme */
+.light_theme #preloader {
+  background: #E6E6E6; /* Light background */
+}
+
+.light_theme .spinner div {
+  background: #f6a44a; /* Spinner color for light theme */
+}
+
+/* Dark theme */
+.dark_theme #preloader {
+  background: #1F1F1F; /* Dark background */
+}
+
+.dark_theme .spinner div {
+  background: #f6a44a; /* Spinner color for dark theme */
+}
+
+/* Individual spinner divs */
+.spinner div:nth-child(1) { --delay: 0.08; --rotation: 36; --translation: 150; }
+.spinner div:nth-child(2) { --delay: 0.16; --rotation: 72; --translation: 150; }
+.spinner div:nth-child(3) { --delay: 0.24; --rotation: 108; --translation: 150; }
+.spinner div:nth-child(4) { --delay: 0.32; --rotation: 144; --translation: 150; }
+.spinner div:nth-child(5) { --delay: 0.40; --rotation: 180; --translation: 150; }
+.spinner div:nth-child(6) { --delay: 0.48; --rotation: 216; --translation: 150; }
+.spinner div:nth-child(7) { --delay: 0.56; --rotation: 252; --translation: 150; }
+.spinner div:nth-child(8) { --delay: 0.64; --rotation: 288; --translation: 150; }
+.spinner div:nth-child(9) { --delay: 0.72; --rotation: 324; --translation: 150; }
+.spinner div:nth-child(10) { --delay: 0.80; --rotation: 360; --translation: 150; }
+
+@keyframes spinner-fzua35 {
+  0%, 10%, 20%, 30%, 50%, 60%, 70%, 80%, 90%, 100% {
+    transform: rotate(calc(var(--rotation) * 1deg)) translate(0, calc(var(--translation) * 1%));
+  }
+  50% {
+    transform: rotate(calc(var(--rotation) * 1deg)) translate(0, calc(var(--translation) * 1.5%));
+  }
+}
+
 
 
 
@@ -698,35 +772,43 @@ main { overflow-x: hidden; }
   pointer-events: auto;
 }
 
-/* Adjust transformations for 10 cards */
-
 /* farthest left back position */
-#c1:checked ~ #card9, 
-#c2:checked ~ #card10, 
-#c3:checked ~ #card1, 
-#c4:checked ~ #card2, 
-#c5:checked ~ #card3,
-#c6:checked ~ #card4,
-#c7:checked ~ #card5,
-#c8:checked ~ #card6,
-#c9:checked ~ #card7,
-#c10:checked ~ #card8 {
+#c1:checked ~ #card13, 
+#c2:checked ~ #card14, 
+#c3:checked ~ #card15, 
+#c4:checked ~ #card1, 
+#c5:checked ~ #card2,
+#c6:checked ~ #card3,
+#c7:checked ~ #card4,
+#c8:checked ~ #card5,
+#c9:checked ~ #card6,
+#c10:checked ~ #card7,
+#c11:checked ~ #card8,
+#c12:checked ~ #card9,
+#c13:checked ~ #card10,
+#c14:checked ~ #card11,
+#c15:checked ~ #card12 {
   box-shadow: 0 1px 4px 0 rgba(0,0,0,.37);
   transform: translate3d(-30%, 0, -200px);
   filter: blur(4px); 
 }
 
 /* left back position */
-#c1:checked ~ #card10,
-#c2:checked ~ #card1,
-#c3:checked ~ #card2,
-#c4:checked ~ #card3,
-#c5:checked ~ #card4,
-#c6:checked ~ #card5,
-#c7:checked ~ #card6,
-#c8:checked ~ #card7,
-#c9:checked ~ #card8,
-#c10:checked ~ #card9 {
+#c1:checked ~ #card14,
+#c2:checked ~ #card15,
+#c3:checked ~ #card1,
+#c4:checked ~ #card2,
+#c5:checked ~ #card3,
+#c6:checked ~ #card4,
+#c7:checked ~ #card5,
+#c8:checked ~ #card6,
+#c9:checked ~ #card7,
+#c10:checked ~ #card8,
+#c11:checked ~ #card9,
+#c12:checked ~ #card10,
+#c13:checked ~ #card11,
+#c14:checked ~ #card12,
+#c15:checked ~ #card13 {
   box-shadow: 0 6px 10px 0 rgba(0,0,0,.3), 0 2px 2px 0 rgba(0,0,0,.2);
   transform: translate3d(-15%,0,-100px);
   filter: blur(2px);
@@ -742,7 +824,12 @@ main { overflow-x: hidden; }
 #c7:checked ~ #card7,
 #c8:checked ~ #card8,
 #c9:checked ~ #card9,
-#c10:checked ~ #card10 {
+#c10:checked ~ #card10,
+#c11:checked ~ #card11,
+#c12:checked ~ #card12,
+#c13:checked ~ #card13,
+#c14:checked ~ #card14,
+#c15:checked ~ #card15 {
   box-shadow: 0 13px 25px 0 rgba(0,0,0,.3), 0 11px 7px 0 rgba(0,0,0,.19);
   transform: translate3d(0,0,0);
   cursor: inherit;
@@ -758,7 +845,12 @@ main { overflow-x: hidden; }
 #c7:checked ~ #card8,
 #c8:checked ~ #card9,
 #c9:checked ~ #card10,
-#c10:checked ~ #card1 {
+#c10:checked ~ #card11,
+#c11:checked ~ #card12,
+#c12:checked ~ #card13,
+#c13:checked ~ #card14,
+#c14:checked ~ #card15,
+#c15:checked ~ #card1 {
   box-shadow: 0 6px 10px 0 rgba(0,0,0,.3), 0 2px 2px 0 rgba(0,0,0,.2);
   transform: translate3d(15%,0,-100px);
   filter: blur(2px);
@@ -773,8 +865,13 @@ main { overflow-x: hidden; }
 #c6:checked ~ #card8,
 #c7:checked ~ #card9,
 #c8:checked ~ #card10,
-#c9:checked ~ #card1,
-#c10:checked ~ #card2 {
+#c9:checked ~ #card11,
+#c10:checked ~ #card12,
+#c11:checked ~ #card13,
+#c12:checked ~ #card14,
+#c13:checked ~ #card15,
+#c14:checked ~ #card1,
+#c15:checked ~ #card2 {
   box-shadow: 0 1px 4px 0 rgba(0,0,0,.37);
   transform: translate3d(30%,0,-200px);
   filter: blur(4px);
@@ -791,7 +888,11 @@ main { overflow-x: hidden; }
 #card8 { background-image: url('../images/design-8.jpeg'); }
 #card9 { background-image: url('../images/design-9.jpeg'); }
 #card10 { background-image: url('../images/design-10.jpeg'); }
-
+#card11 { background-image: url('../images/design-11.jpeg'); }
+#card12 { background-image: url('../images/design-12.jpeg'); }
+#card13 { background-image: url('../images/design-13.jpeg'); }
+#card14 { background-image: url('../images/design-14.jpeg'); }
+#card15 { background-image: url('../images/design-15.jpeg'); }
 
 
 

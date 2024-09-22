@@ -176,6 +176,19 @@ function handleSubmit(event) {
     });
 }
 
+// PreLoader
+
+var loader = document.getElementById("preloader");
+var content = document.getElementById("content");
+
+window.addEventListener("load", function(){
+    setTimeout(function(){
+        loader.classList.add("hide-preloader");
+        content.style.display = "block"; // Show the main content
+    }, 2000); // 2000ms = 2 seconds
+});
+
+
 /**
  * Prevent Image download & inspect
  */
