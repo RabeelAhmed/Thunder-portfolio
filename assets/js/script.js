@@ -192,5 +192,4 @@ window.addEventListener("load", function(){
 /**
  * Prevent Image download & inspect
  */
-
-// document.addEventListener("contextmenu", (event) => event.preventDefault());
+ document.addEventListener("contextmenu", (event) => event.preventDefault());
